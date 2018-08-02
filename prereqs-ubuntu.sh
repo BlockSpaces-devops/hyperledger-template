@@ -39,6 +39,9 @@ sudo apt-get update
 echo "# Installing Git"
 sudo apt-get install -y git
 
+# Install cURL
+sudo apt-get install -y curl
+
 # Install nvm dependencies
 echo "# Installing nvm dependencies"
 sudo apt-get -y install build-essential libssl-dev
@@ -107,21 +110,46 @@ then
    sudo apt-get install -y python-minimal
 fi
 
+# Install Pip for Python
+sudo apt-­get -y install python­-pip
+
+
+# Install Golang
+cd $HOME/ && wget https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz
+tar -xvf go1.8.1.linux-amd64.tar.gz
+
+# Create the Go environment variables and folders
+mkdir $HOME/gopath
+export GOPATH=$HOME/gopath
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+
+# Install LIB LTDL-Dev
+sudo apt-get install -y libltdl-dev
+
 
 # Print installation details for user
 echo ''
 echo 'Installation completed, versions installed are:'
 echo ''
+echo -n 'cURL:           '
+curl --version
 echo -n 'Node:           '
 node --version
 echo -n 'npm:            '
 npm --version
+echo -n 'Git:            '
+git --version
 echo -n 'Docker:         '
 docker --version
 echo -n 'Docker Compose: '
 docker-compose --version
 echo -n 'Python:         '
 python -V
+echo -n 'Pip:            '
+pip --version
+echo -n 'Golang:         '
+go version
 
 # Print reminder of need to logout in order for these changes to take effect!
 echo ''
