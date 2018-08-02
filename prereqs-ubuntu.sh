@@ -111,7 +111,7 @@ then
 fi
 
 # Install Pip for Python
-sudo apt-­get -y install python­-pip
+sudo apt-­get install -y python­-pip
 
 
 # Install Golang
